@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"gorm.io/driver/mysql"
 	"io"
 	"log"
 	"os"
@@ -50,21 +51,43 @@ func initDataFilePath() (string, error) {
 
 var logger = selfLogger.Log().WithField("module", "database")
 
-func InitData(config *gorm.Config) (*Data, error) {
-	dataPath, err := initDataFilePath()
-	if err != nil {
-		return nil, fmt.Errorf("failed to init data path")
+func InitData(config *gorm.Config, dbConfig *config.DBConfig) (*Data, error) {
+	var db *gorm.DB
+	if dbConfig == nil || dbConfig.DriverName == "sqlite" {
+		dataPath, err := initDataFilePath()
+		if err != nil {
+			return nil, fmt.Errorf("failed to init data path")
+		}
+
+		logger.Infof("init database with file %s", dataPath)
+		db, err = gorm.Open(sqlite.Open(dataPath), config)
+		if err != nil {
+			return nil, fmt.Errorf("failed to connect sqlite database")
+		}
+	} else {
+		if dbConfig.DriverName == "mysql" {
+			dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbConfig.Username, dbConfig.Password, dbConfig.Host, dbConfig.Port, dbConfig.DBName)
+			_db, err := gorm.Open(mysql.New(mysql.Config{
+				DSN:                       dsn,
+				DefaultStringSize:         256,
+				DisableDatetimePrecision:  true,
+				DontSupportRenameIndex:    true,
+				DontSupportRenameColumn:   true,
+				SkipInitializeWithVersion: false,
+			}), config)
+			if err != nil {
+				return nil, fmt.Errorf("failed to connect mysql database")
+			}
+			db = _db
+		} else {
+			return nil, fmt.Errorf("unsupported driver %s", dbConfig.DriverName)
+		}
 	}
-
-	logger.Infof("init database with file %s", dataPath)
-	db, err := gorm.Open(sqlite.Open(dataPath), config)
-
-	if err != nil {
-		return nil, fmt.Errorf("failed to connect database")
-	}
-
-	if err := db.AutoMigrate(&LogData{}, &LogGroup{}, &Tag{}); err != nil {
-		return nil, fmt.Errorf("failed to auto migrate database")
+	if dbConfig != nil && dbConfig.DisableMigrate == false {
+		logger.Infof("execute auto migration")
+		if err := db.AutoMigrate(&LogData{}, &LogGroup{}, &Tag{}); err != nil {
+			return nil, fmt.Errorf("failed to auto migrate database")
+		}
 	}
 
 	return &Data{db: db}, nil
@@ -93,7 +116,13 @@ func NewData(config *config.Config, taskManager *task.TaskManager, st storage.St
 		logLevel = gormLogger.Info
 	}
 
+	isMigrate := false
+	if config.DBConfig != nil && config.DBConfig.DisableMigrate == false {
+		isMigrate = true
+	}
+
 	c := &gorm.Config{
+		DisableForeignKeyConstraintWhenMigrating: isMigrate,
 		Logger: gormLogger.New(
 			log.New(os.Stdout, "\r\n", log.LstdFlags),
 			gormLogger.Config{
@@ -105,7 +134,7 @@ func NewData(config *config.Config, taskManager *task.TaskManager, st storage.St
 		),
 	}
 
-	return InitData(c)
+	return InitData(c, config.DBConfig)
 }
 
 func loadData(config *config.Config, remoteStorage storage.StorageApi) error {
