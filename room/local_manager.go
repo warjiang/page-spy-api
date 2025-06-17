@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	roomApi "github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/logger"
-	"github.com/HuolalaTech/page-spy-api/rpc"
 	"github.com/sirupsen/logrus"
+	"github.com/warjiang/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/api/room"
+	roomApi "github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/logger"
+	"github.com/warjiang/page-spy-api/rpc"
 )
 
 func NewLocalRoomManager(event event.EventEmitter, addressManager *rpc.AddressManager, maxRoomSize int64) *LocalRoomManager {

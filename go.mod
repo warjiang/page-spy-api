@@ -1,4 +1,4 @@
-module github.com/HuolalaTech/page-spy-api
+module github.com/warjiang/page-spy-api
 
 go 1.21
 

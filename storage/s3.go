@@ -6,12 +6,12 @@ import (
 	"io"
 	"path"
 
-	"github.com/HuolalaTech/page-spy-api/config"
 	"github.com/aws/aws-sdk-go/aws"
 	awsErr "github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 type RemoteApi struct {

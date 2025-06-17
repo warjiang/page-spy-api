@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/config"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 // 用于签名JWT的密钥

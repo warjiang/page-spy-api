@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/rpc"
+	"github.com/warjiang/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/rpc"
 )
 
 type RpcEventEmitter struct {

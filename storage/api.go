@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/HuolalaTech/page-spy-api/config"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 type Tag struct {

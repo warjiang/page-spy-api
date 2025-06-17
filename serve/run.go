@@ -1,10 +1,10 @@
 package serve
 
 import (
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/container"
-	"github.com/HuolalaTech/page-spy-api/util"
 	"github.com/labstack/echo/v4"
+	"github.com/warjiang/page-spy-api/config"
+	"github.com/warjiang/page-spy-api/container"
+	"github.com/warjiang/page-spy-api/util"
 )
 
 func Run() {

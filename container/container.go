@@ -4,14 +4,14 @@ import (
 	"log"
 	"sync"
 
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/data"
-	"github.com/HuolalaTech/page-spy-api/proxy"
-	"github.com/HuolalaTech/page-spy-api/rpc"
-	"github.com/HuolalaTech/page-spy-api/serve/route"
-	"github.com/HuolalaTech/page-spy-api/serve/socket"
-	"github.com/HuolalaTech/page-spy-api/storage"
-	"github.com/HuolalaTech/page-spy-api/task"
+	"github.com/warjiang/page-spy-api/config"
+	"github.com/warjiang/page-spy-api/data"
+	"github.com/warjiang/page-spy-api/proxy"
+	"github.com/warjiang/page-spy-api/rpc"
+	"github.com/warjiang/page-spy-api/serve/route"
+	"github.com/warjiang/page-spy-api/serve/socket"
+	"github.com/warjiang/page-spy-api/storage"
+	"github.com/warjiang/page-spy-api/task"
 	"go.uber.org/dig"
 )
 

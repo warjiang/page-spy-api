@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/api/event"
 )
 
 const (

@@ -2,16 +2,16 @@ package rpc
 
 import (
 	"fmt"
+	"github.com/warjiang/page-spy-api/util"
 	"math/rand"
 	"net"
 	"sort"
 	"strconv"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/util"
 	"github.com/google/uuid"
+	"github.com/warjiang/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 const LOCAL_NAME = "local"

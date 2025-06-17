@@ -9,15 +9,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/data"
-	"github.com/HuolalaTech/page-spy-api/proxy"
-	"github.com/HuolalaTech/page-spy-api/serve/common"
-	selfMiddleware "github.com/HuolalaTech/page-spy-api/serve/middleware"
-	"github.com/HuolalaTech/page-spy-api/serve/socket"
-	"github.com/HuolalaTech/page-spy-api/static"
-	"github.com/HuolalaTech/page-spy-api/storage"
 	"github.com/labstack/echo/v4"
+	"github.com/warjiang/page-spy-api/config"
+	"github.com/warjiang/page-spy-api/data"
+	"github.com/warjiang/page-spy-api/proxy"
+	"github.com/warjiang/page-spy-api/serve/common"
+	selfMiddleware "github.com/warjiang/page-spy-api/serve/middleware"
+	"github.com/warjiang/page-spy-api/serve/socket"
+	"github.com/warjiang/page-spy-api/static"
+	"github.com/warjiang/page-spy-api/storage"
 )
 
 var blackTagName = []string{"page", "size", "from", "to"}
