@@ -39,3 +39,29 @@ func GetLocalIPList() []string {
 
 	return arr
 }
+
+func IsIP(ipOrDns string) bool {
+	if ip := net.ParseIP(ipOrDns); ip != nil {
+		return true
+	}
+	return false
+}
+
+func ResolveIP(ipOrDns string) string {
+	if IsIP(ipOrDns) {
+		return ipOrDns
+	}
+	localIP := GetLocalIP()
+	ips, err := net.LookupIP(ipOrDns)
+	if err != nil {
+		return ipOrDns
+	}
+
+	for _, ip := range ips {
+		if ip.String() == localIP {
+			return localIP
+		}
+	}
+	// not found any matched ip address in ips
+	return ipOrDns
+}
