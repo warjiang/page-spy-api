@@ -1,7 +1,6 @@
 package util
 
 import (
-	"math/rand"
 	"net"
 )
 
@@ -66,9 +65,5 @@ func ResolveIP(ipOrDns string) string {
 		}
 	}
 	// not found any matched ip address in ips
-	if len(ips) > 0 {
-		index := rand.Intn(len(ips))
-		return ips[index].String()
-	}
 	return ipOrDns
 }

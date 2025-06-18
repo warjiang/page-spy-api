@@ -33,8 +33,6 @@ func LoadConfig() (*Config, error) {
 
 	// 从环境变量加载认证配置
 	loadAuthConfigFromEnv(config)
-	buff, _ := json.Marshal(config)
-	fmt.Println(string(buff))
 	return config, nil
 }
 
@@ -133,13 +131,11 @@ func resolveRpcAddress(config *Config) *Config {
 	}
 	resolvedRpcAddress := make([]*Address, len(config.RpcAddress))
 	for idx, addr := range config.RpcAddress {
-		fmt.Printf("[%d]Origin ip is %s\n", idx, addr.Ip)
 		resolvedIP := util.ResolveIP(addr.Ip)
 		resolvedRpcAddress[idx] = &Address{
 			Ip:   resolvedIP,
 			Port: addr.Port,
 		}
-		fmt.Printf("[%d]Origin ip is %s\n", idx, resolvedIP)
 	}
 	config.RpcAddress = resolvedRpcAddress
 	return config
