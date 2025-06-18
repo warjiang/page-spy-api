@@ -45,6 +45,7 @@ type Config struct {
 	// max log file size, unit is day
 	MaxLogLifeTimeOfHour int64       `json:"maxLogLifeTimeOfHour"`
 	AuthConfig           *AuthConfig `json:"authConfig"`
+	DBConfig             *DBConfig   `json:"dbConfig"`
 }
 
 func (c *Config) GetLogDir() string {
@@ -111,4 +112,15 @@ type StaticConfig struct {
 	Files   fs.FS
 	GitHash string
 	Version string
+}
+
+type DBConfig struct {
+	DisableMigrate bool   `json:"disableMigrate"`
+	DriverName     string `json:"driverName"`
+	Host           string `json:"host"`
+	Port           int32  `json:"port"`
+	DBFilePath     string `json:"dbFilePath"`
+	Username       string `json:"username"`
+	Password       string `json:"password"`
+	DBName         string `json:"dbName"`
 }

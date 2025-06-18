@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/logger"
-	"github.com/HuolalaTech/page-spy-api/metric"
-	"github.com/HuolalaTech/page-spy-api/state"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/logger"
+	"github.com/warjiang/page-spy-api/metric"
+	"github.com/warjiang/page-spy-api/state"
 )
 
 var log = logger.Log()

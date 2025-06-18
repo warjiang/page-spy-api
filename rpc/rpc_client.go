@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/metric"
-	"github.com/HuolalaTech/page-spy-api/state"
 	req "github.com/imroc/req/v2"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/metric"
+	"github.com/warjiang/page-spy-api/state"
 )
 
 type RpcClient struct {

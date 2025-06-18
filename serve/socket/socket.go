@@ -12,14 +12,14 @@ import (
 	"sync"
 	"time"
 
-	eventApi "github.com/HuolalaTech/page-spy-api/api/event"
-	roomApi "github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/logger"
-	"github.com/HuolalaTech/page-spy-api/metric"
-	"github.com/HuolalaTech/page-spy-api/room"
-	"github.com/HuolalaTech/page-spy-api/serve/common"
-	"github.com/HuolalaTech/page-spy-api/util"
 	"github.com/gorilla/websocket"
+	eventApi "github.com/warjiang/page-spy-api/api/event"
+	roomApi "github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/logger"
+	"github.com/warjiang/page-spy-api/metric"
+	"github.com/warjiang/page-spy-api/room"
+	"github.com/warjiang/page-spy-api/serve/common"
+	"github.com/warjiang/page-spy-api/util"
 )
 
 var joinLog = logger.Log().WithField("module", "socket")

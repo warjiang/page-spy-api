@@ -2,12 +2,12 @@ package proxy
 
 import (
 	"fmt"
+	"github.com/warjiang/page-spy-api/rpc"
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/rpc"
 	"github.com/labstack/echo/v4"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 type proxyInfo struct {

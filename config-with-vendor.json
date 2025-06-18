@@ -1,0 +1,20 @@
+{
+	"port": "6752",
+	"storageConfig": {
+		"baseDir": "{dir for s3 storage}",
+		"keyId": "{ak}",
+		"secret": "{sk}",
+		"bucket": "{bucket name}",
+		"region": "{bucket region}",
+		"endpoint": "{bucket endpoint}"
+	},
+	"dbConfig": {
+		"driverName": "{valid driver is mysql/sqlite}",
+		"host": "{mysql host}",
+		"port": 3306,
+		"username": "{username}",
+		"password": "{password}",
+		"dbName": "{db for pageSpy}",
+		"disableMigrate": false
+	}
+}

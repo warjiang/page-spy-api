@@ -1,12 +1,12 @@
 package middleware
 
 import (
+	"github.com/warjiang/page-spy-api/serve/common"
 	"net/http"
 	"strings"
 
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/serve/common"
 	"github.com/labstack/echo/v4"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 // Auth 中间件用于验证请求的认证信息

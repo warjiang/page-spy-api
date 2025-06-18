@@ -1,7 +1,7 @@
 package room
 
 import (
-	"github.com/HuolalaTech/page-spy-api/state"
+	"github.com/warjiang/page-spy-api/state"
 )
 
 func newBasicRoom() *basicRoom {

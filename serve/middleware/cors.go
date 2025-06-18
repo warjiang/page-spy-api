@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/HuolalaTech/page-spy-api/config"
 	echo "github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/warjiang/page-spy-api/config"
 )
 
 func isEmptyArray(a []string) bool {

@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/metric"
-	"github.com/HuolalaTech/page-spy-api/state"
 	"github.com/sirupsen/logrus"
+	"github.com/warjiang/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/metric"
+	"github.com/warjiang/page-spy-api/state"
 )
 
 func NewRemoteRoom(connection *room.Connection, opt *room.Info, eventEmitter event.EventEmitter, rpcRoom room.RpcRoom) (room.RemoteRoom, error) {

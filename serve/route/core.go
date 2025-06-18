@@ -8,13 +8,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/config"
-	"github.com/HuolalaTech/page-spy-api/data"
-	"github.com/HuolalaTech/page-spy-api/logger"
-	"github.com/HuolalaTech/page-spy-api/rpc"
-	"github.com/HuolalaTech/page-spy-api/storage"
-	"github.com/HuolalaTech/page-spy-api/task"
-	"github.com/HuolalaTech/page-spy-api/util"
+	"github.com/warjiang/page-spy-api/config"
+	"github.com/warjiang/page-spy-api/data"
+	"github.com/warjiang/page-spy-api/logger"
+	"github.com/warjiang/page-spy-api/rpc"
+	"github.com/warjiang/page-spy-api/storage"
+	"github.com/warjiang/page-spy-api/task"
+	"github.com/warjiang/page-spy-api/util"
 )
 
 var log = logger.Log().WithField("module", "core")

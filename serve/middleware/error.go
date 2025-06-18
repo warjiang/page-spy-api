@@ -3,9 +3,9 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/serve/common"
 	"github.com/labstack/echo/v4"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/serve/common"
 )
 
 func Error() echo.MiddlewareFunc {

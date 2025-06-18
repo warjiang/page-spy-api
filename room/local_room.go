@@ -6,12 +6,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/HuolalaTech/page-spy-api/api/event"
-	"github.com/HuolalaTech/page-spy-api/api/room"
-	"github.com/HuolalaTech/page-spy-api/metric"
-	"github.com/HuolalaTech/page-spy-api/rpc"
-	"github.com/HuolalaTech/page-spy-api/state"
 	"github.com/sirupsen/logrus"
+	"github.com/warjiang/page-spy-api/api/event"
+	"github.com/warjiang/page-spy-api/api/room"
+	"github.com/warjiang/page-spy-api/metric"
+	"github.com/warjiang/page-spy-api/rpc"
+	"github.com/warjiang/page-spy-api/state"
 )
 
 func NewLocalRoom(opt *room.Info, event event.EventEmitter, addressManager *rpc.AddressManager) (room.Room, error) {
