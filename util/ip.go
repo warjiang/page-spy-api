@@ -1,6 +1,9 @@
 package util
 
-import "net"
+import (
+	"math/rand"
+	"net"
+)
 
 // GetLocalIP 获取本机ip 获取失败返回 ""
 func GetLocalIP() string {
@@ -63,5 +66,9 @@ func ResolveIP(ipOrDns string) string {
 		}
 	}
 	// not found any matched ip address in ips
+	if len(ips) > 0 {
+		index := rand.Intn(len(ips))
+		return ips[index].String()
+	}
 	return ipOrDns
 }

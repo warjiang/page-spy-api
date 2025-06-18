@@ -131,14 +131,13 @@ func resolveRpcAddress(config *Config) *Config {
 	if config == nil || config.RpcAddress == nil {
 		return config
 	}
-	fmt.Printf("rpc address: %+v, and len is: %d \n", config.RpcAddress, len(config.RpcAddress))
-	resolvedRpcAddress := make([]*Address, 0)
-	for _, addr := range config.RpcAddress {
+	resolvedRpcAddress := make([]*Address, len(config.RpcAddress))
+	for idx, addr := range config.RpcAddress {
 		resolvedIP := util.ResolveIP(addr.Ip)
-		resolvedRpcAddress = append(resolvedRpcAddress, &Address{
+		resolvedRpcAddress[idx] = &Address{
 			Ip:   resolvedIP,
 			Port: addr.Port,
-		})
+		}
 	}
 	config.RpcAddress = resolvedRpcAddress
 	return config
