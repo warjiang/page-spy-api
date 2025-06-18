@@ -12,6 +12,7 @@ import (
 	"encoding/base64"
 
 	"github.com/labstack/gommon/log"
+	"github.com/warjiang/page-spy-api/util"
 )
 
 const ConfigFileName = "config.json"
@@ -32,7 +33,8 @@ func LoadConfig() (*Config, error) {
 
 	// 从环境变量加载认证配置
 	loadAuthConfigFromEnv(config)
-
+	buff, _ := json.Marshal(config)
+	fmt.Println(string(buff))
 	return config, nil
 }
 
@@ -120,5 +122,24 @@ func loadLocalConfigFile() (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("decode config.json error %w", err)
 	}
+
+	config = resolveRpcAddress(config)
 	return config, nil
+}
+
+func resolveRpcAddress(config *Config) *Config {
+	if config == nil || config.RpcAddress == nil {
+		return config
+	}
+
+	resolvedRpcAddress := make([]*Address, 0, len(config.RpcAddress))
+	for idx, addr := range config.RpcAddress {
+		resolvedIP := util.ResolveIP(addr.Ip)
+		resolvedRpcAddress[idx] = &Address{
+			Ip:   resolvedIP,
+			Port: addr.Port,
+		}
+	}
+	config.RpcAddress = resolvedRpcAddress
+	return config
 }
